@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.DS_Store
+.claude/
+backend/zhol.db
+backend/uploads/

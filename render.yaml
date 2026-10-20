@@ -1,0 +1,14 @@
+# Конфигурация хостинга Render (Blueprint): Render читает этот файл и сам создаёт веб-сервис.
+services:
+  - type: web
+    name: zhol-id-cargo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/meta
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ZHOL_SIM_SPEED
+        value: "0.5"
